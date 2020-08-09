@@ -1,0 +1,33 @@
+.cell {
+  border: 1px solid lightgray;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+
+  cursor: pointer;
+}
+
+.cell:hover{
+  background: green;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background: red;
+}
+
+.symbol {
+  line-height: 100px;
+  font-weight: bold;
+  pointer-events: none;
+  font-size: 48px;
+}
+
+#board {
+  border: 1px solid lightgray;
+  width: 452px;
+}
