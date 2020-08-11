@@ -12,26 +12,26 @@ export function selectOPlayerAction(player) {
         player
     }
 }
-export function toggleTurnAction(player) {
+export function toggleTurnAction(currenPlayer,board) {
     return (dispatch) => {
-        const currentPlayer = player;
-        if (currentPlayer.turn === 'playerOne') {
-            currentPlayer.turn = 'playerTwo'
+        if (currenPlayer.turn === 'playerOne') {
+            currenPlayer.turn = 'playerTwo'
         } else {
-            currentPlayer.turn = 'playerOne'
+            currenPlayer.turn = 'playerOne'
         }
         return new Promise(resolve => {
-            apiService.post('sessions/1', JSON.stringify(currentPlayer)).then(function (result) {
+            apiService.put('games/'+localStorage.getItem('gameId'), JSON.stringify({turn:currenPlayer.turn,history:board})).then(function (result) {
                 dispatch({
                     type: TURN,
-                    value: currentPlayer.turn
+                    value: currenPlayer.turn
 
                 })
+                resolve()
             }).catch(function (err) {
                 console.log(err)
-            })
-            resolve()
-        })
+            });
+        });
+
     }
 
 }

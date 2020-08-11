@@ -18,7 +18,7 @@ function Square(props) {
             alert("You can't revert your action");
         } else {
             draw(board, players, index).then(() => {
-                toggleTurn(players);
+                toggleTurn(players,board);
             });
         }
         checkResult(board);
@@ -40,13 +40,13 @@ const mapDispatchToProps = dispatch => ({
     draw: (board, players, cellIndex) => {
         if (!board[cellIndex]) {
             if (players[players.turn] === 'X') {
-                return dispatch(drawXAction(cellIndex, board))
+                return dispatch(drawXAction(cellIndex,board,players.playerOneId))
             } else {
-                return dispatch(drawOAction(cellIndex, board))
+                return dispatch(drawOAction(cellIndex,board,players.playerTwoId))
             }
         }
     },
-    toggleTurn: (players) => dispatch(toggleTurnAction(players)),
+    toggleTurn: (players,board) => dispatch(toggleTurnAction(players,board)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Square)

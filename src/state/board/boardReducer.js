@@ -22,6 +22,7 @@ export function boardReducer(state = initialState, action) {
             return action.value
 
         case RESUME_FROM_LAST :
+            console.log(action.value)
 
             const newState = action.value
 

@@ -12,7 +12,7 @@ function Board(props) {
     },[]);
 
 
-    const {board} = props
+    const {board,players} = props
 
     return (
         <Fragment>
@@ -22,13 +22,13 @@ function Board(props) {
                 }
             </div>
 
-            <Summary/>
+            <Summary players={players} />
 
         </Fragment>
     )
 }
 
-const mapStateToProps = ({board}) => ({board})
+const mapStateToProps = ({board,players}) => ({board,players})
 
 const mapDispatchToProps = dispatch => ({
 

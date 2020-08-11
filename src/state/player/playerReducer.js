@@ -1,10 +1,14 @@
-import {PLAYER_X, TURN, PLAYER_O,RESUME_PLAYER_SETTING} from './actionTypes'
+import {PLAYER_X, TURN, PLAYER_O, RESUME_PLAYER_SETTING, INITIALIZE_PLAYER_SETTINGS, ADD_LOGS} from './actionTypes'
 
 export const playerSettings = {
     playerOne: 'X',
     playerTwo: 'O',
-    turn: 'playerOne'
+    turn: 'playerOne',
+    playerOneId: '',
+    playerTwoId: '',
+    logs: [],
 }
+
 export function playerReducer(state = playerSettings, action) {
     switch (action.type) {
         case PLAYER_X:
@@ -34,12 +38,20 @@ export function playerReducer(state = playerSettings, action) {
         case TURN:
             const newState = {...state}
 
-            newState.turn=action.value
+            newState.turn = action.value
             return newState
 
         case RESUME_PLAYER_SETTING:
 
             return action.value
+        case INITIALIZE_PLAYER_SETTINGS:
+
+            return action.value
+        case ADD_LOGS:
+            const newlogState={...state};
+            newlogState.logs.push(action.value);
+            return newlogState
+
 
         default:
             return state

@@ -1,4 +1,6 @@
 export const PLAYER_X = 'PLAYER_X'
 export const PLAYER_O = 'PLAYER_X'
 export const TURN = 'TURN'
+export const ADD_LOGS='ADD_LOGS'
 export const RESUME_PLAYER_SETTING='RESUME_PLAYER_SETTING'
+export const INITIALIZE_PLAYER_SETTINGS='INITIALIZE_PLAYER_SETTINGS'
