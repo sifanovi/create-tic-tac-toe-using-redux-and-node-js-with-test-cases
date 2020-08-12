@@ -6,12 +6,6 @@ const initialResult = {
     tie: false
 }
 
-const initialState = {
-    playerOne: 'X',
-    playerTwo: 'O',
-    turn: 'playerOne'
-}
-
 describe('Result reducer', ()=>{
     it('should return initial state',()=>{
        expect(resultReducer(undefined ,{})).toEqual(initialResult)

@@ -4,7 +4,10 @@ import {PLAYER_X, TURN, PLAYER_O, RESUME_PLAYER_SETTING} from '../../state/playe
 const initialState = {
     playerOne: 'X',
     playerTwo: 'O',
-    turn: 'playerOne'
+    turn: 'playerOne',
+    playerOneId: '',
+    playerTwoId: '',
+    logs: [],
 }
 
 describe('Player reducer', () => {
